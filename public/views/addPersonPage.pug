@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+	head
+		title Add a Person
+		link(rel="stylesheet" href="./views/index.css")
+		
+	body
+		include ../views/partials/header
+		
+		h1 Add a person!
+		
+		form#addItemForm
+			input#nameParam(type="text" placeholder="Person Name")
+			//-
+				br
+				h2 Frequent Collaborators
+				input.freqCollabsParam(type="text" placeholder="Frequent Collaborators" list="allPeople")
+				datalist#allPeople
+					for person in people
+						option.personOption #{person.name}
+				br
+				h2 Acting History
+				input.actingHistoryParam(type="text" placeholder="Acting History" list="allMovies")
+				br
+				h2 Directing History
+				input.directingHistoryParam(type="text" placeholder="Direcing History" list="allMovies")
+				br
+				h2 Writing history
+				input.writingHistoryParam(type="text" placeholder="Writing History" list="allMovies")
+				datalist#allMovies
+					for movie in movies
+						option.movieOption #{movie.title}
+			br
+			button#addPersonButton(type="button") Submit
+script(src="/scripts/addPersonPage.js")

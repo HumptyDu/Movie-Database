@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+	head
+		title Search
+		link(rel="stylesheet" href="./views/index.css")
+		
+	body
+		include ../views/partials/header
+		
+		h1 Search
+		form#searchForm
+			input#titleParam(type="text" placeholder="Title")
+			br
+			input#genreParam(type="text" placeholder="Genre")
+			br
+			input#actorParam(type="text" placeholder="Actor")
+			br
+			button#search(type="button") Search
+script(src="./scripts/searchPage.js")

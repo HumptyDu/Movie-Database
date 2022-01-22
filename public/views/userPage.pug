@@ -1,0 +1,74 @@
+doctype html
+html(lang='en')
+	head
+		title #{user.Username}
+		link(rel="stylesheet" href="/views/index.css")
+	body
+		include ../views/partials/header
+		
+		#userInfoContainer
+			h1(id="username" _id=user._id username=user.username) #{user.username}
+			if user.contributing	
+				h4 (Contributing)
+			else
+				h4 (Non-contributing)
+			if loggedIn
+				if isSelf
+					button#toggleContributorButton(type="button") Toggle Contributor
+				else	
+					if followed
+						button#toggleUserFollowing(type="button") Unfollow
+					else
+						button#toggleUserFollowing(type="button") Follow
+			if user.usersFollowing.length > 0
+				h3 Users following: 
+				for uf in user.usersFollowing
+					if isSelf
+						button.unfollowUserButton(type="button" _id=uf._id username=uf.username) Unfollow
+					a(href="/users/" + uf.username) #{uf.username}
+					br
+			if user.usersFollowingThis.length > 0
+				h3 Followed by: 
+				for fb in user.usersFollowingThis
+					a(href="/users/" + fb.username) #{fb.username}
+					br
+			if user.pplFollowing.length > 0
+				h3 People following:
+				for pf in user.pplFollowing
+					if isSelf
+						button.unfollowPersonButton(type="button" id=pf._id) Unfollow
+					a(href="/people/" + pf._id id=pf +"_link") #{pf.name}
+					br
+			if user.pplFollowingThis.length > 0
+				for pft in user.pplFollowingThis
+					a(href="/people/" + pft) #{pft}
+					br
+			if user.moviesWatched.length > 0
+				h3 Movies Watched
+				for mw in user.moviesWatched
+					a(href="/movies/" + mw._id) #{mw.title}
+					br
+			if user.recommendedMovies.length > 0
+				h3 Recomended Movies
+				for rm in user.recommendedMovies
+					a(href="/movies/" + rm._id) #{rm.title}
+					br
+			//if isSelf
+			if user.notifications.length > 0
+				h3 Notifications
+				#notificationsContainer
+					for notification in user.notifications
+						if isSelf
+							button.dismissButton(id=notification type="button") Dismiss
+						| #{notification}
+						br
+			if user.reviewsMade.length > 0
+				h2 Reviews
+				for review in user.reviewsMade
+					.review
+						a(href="/review/"+review.id) #{review.title} 
+						//| - 
+						//a(href="/movies/"+review.movie._id) #{review.movie.title}
+						br
+						
+script(src="/scripts/userPage.js")

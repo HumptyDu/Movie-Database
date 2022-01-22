@@ -1,0 +1,98 @@
+doctype html
+html(lang='en')
+	head
+		title #{movie.Title}
+		link(rel="stylesheet" href="/views/index.css")
+	body
+		include ../views/partials/header
+		
+		h1 #{movie.title}
+		
+		#moviePosterContainer
+			img(src=movie.poster)
+		
+		#infoContainer
+			if loggedIn
+				if watched
+					button#addToWatchedButton(type="button") Unwatch
+				else
+					button#addToWatchedButton(type="button") Add to watched
+			br
+			//p Release date: #{movie.released}
+			p Runtime: #{movie.runtime}
+			//p Rated: #{movie.rated}
+			br
+			p Genres: 
+			for g in movie.genre
+				a(href="/searchresults?genre="+g+"&limit=10&page=1") #{g} 	
+				
+			
+			#actorsContainer
+				h2 Notable Actors
+				for actor in movie.actors
+					a(href="/people/" + actor._id) #{actor.name}
+					br
+					br
+					
+				h2 Writers
+				for writer in movie.writers
+					a(href="/people/" + writer._id) #{writer.name}
+					br
+					br
+
+				h2 Directors
+				for director in movie.directors
+					a(href="/people/" + director._id) #{director.name}
+					br
+					br
+					
+			#plotContainer
+				h2 Plot
+				p=movie.plot
+				
+			#actorsContainer
+				h2 Similar Movies
+				for sm in movie.similarMovies
+					a(href="/movies/" + sm._id) #{sm.title}
+					br
+		
+		#reviewsContainer
+			if movie.reviews.length > 0
+				h2 Reviews
+				- let avgRating = 0;
+				for review in movie.reviews
+					- avgRating += review.score;
+				- avgRating = avgRating / movie.reviews.length * 10;
+				h3 Average Rating : #{avgRating}%
+				- let i = 0
+				- let max;
+				- movie.reviews.length <= 8 ? max=movie.reviews.length : max=8 ;
+				while i < max
+					- let review = movie.reviews[i];
+					.review
+						| User 
+						a(href="/users/" + review._id) #{review.user} 
+						| on #{review.date}
+						br
+						br
+						a#reviewTitle(href="/reviews/"+review.id) #{review.title} (#{review.score}/10)
+					- i++;
+				button.iterateReviewsButton#prevButton(type="button") Prev
+				button.iterateReviewsButton#nextButton(type="button") Next
+				
+		if loggedIn
+			form#addReviewContainer
+				h2 Add your own review!
+				| Title: 
+				input#nameText(type="text")
+				br
+				| Score:
+				input#userRating(type="number" min="1" max="10")
+				p Text:
+				textarea#reviewText
+				br
+				if !reviewed
+					button#submitReview(type="button") Submit
+				else
+					button#editReview(type="button") Edit
+script(src="/scripts/moviePage.js")

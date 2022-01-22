@@ -1,0 +1,17 @@
+div#header
+	a(href="/") Home
+	|          
+	if loggedIn
+		a(href="/users/" + username) Profile
+		|        
+	if !loggedIn
+		a(href="/login") Login/Sign Up
+		|
+	else
+		div#signOut
+			| Sign Out
+	a(href="/search") Search
+	|    
+	if loggedIn
+		a(href="/contribute") Contribute
+script(src="/scripts/header.js")

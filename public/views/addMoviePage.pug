@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+	head
+		title Add a Movie
+		link(rel="stylesheet" href="./views/index.css")
+		
+	body
+		include ../views/partials/header
+		
+		h1 Add a movie!
+		
+		form#addItemForm
+			input#nameParam(type="text" placeholder="Movie Title")
+			br
+			p Release date:
+			input#releaseDateParam(type="date")
+			br
+			input#runtimeParam(type="number" min="30" max="500" placeholder="Runtime")
+			br
+			input#ratingParam(type="text" placeholder="Rating" list="allRatings")
+			datalist#allRatings
+				option G
+				option PG
+				option PG-13
+				option R
+				option NC-17
+			br
+			input.genresParam(type="text" placeholder="Genres" list="allGenres")
+			datalist#allGenres
+				for genre in genres
+					option.genreOption #{genre}
+			br
+			input.directorsParam(type="text" placeholder="Director(s)" list="allPeople")
+			br
+			input.writersParam(type="text" placeholder="Writer(s)" list="allPeople")
+			br
+			input.actorsParam(type="text" placeholder="Actors" list="allPeople")
+			datalist#allPeople
+				for person in people
+					option.personOption(id=person._id) #{person.name}
+			br
+			input#plotParam(type="text" placeholder="Plot")
+			br
+			input#awardsParam(type="text" placeholder="Awards (optional)")
+			br
+			button#addMovieButton(type="button") Submit
+			
+script(src="/scripts/addMoviePage.js")

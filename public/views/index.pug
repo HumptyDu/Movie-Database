@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+	head
+		title Home
+		link(rel="stylesheet" href="./views/index.css")
+	body
+		include ../views/partials/header
+		
+		h1 Welcome!
+		
+		#trending
+			p Trending: 
+			#trendingSlides
+				article#trendingData("data-trending"=trending "data-index"=0)
+				a#link(href="/movies/" + trending[0]._id)
+					img#poster(src=trending[0].poster)
+			
+			button#prev(type="button") Prev
+			button#next(type="button") Next
+		
+		if loggedIn
+			#recommended
+				p Recommended for you: 
+					#trendingSlides
+
+				button#prev(type="button") Prev
+				button#next(type="button") Next
+			
+script(src="./scripts/index.js")

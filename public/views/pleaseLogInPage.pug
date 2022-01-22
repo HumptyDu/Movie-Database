@@ -1,0 +1,11 @@
+doctype html
+html(lang='en')
+	head
+		title Unauthorized
+		link(rel="stylesheet" href="./views/index.css")
+		
+	body
+		include ../views/partials/header
+		
+		h1 #{message}
+		p.standardParagraph This page is only available if you are signed in and are a contributor.

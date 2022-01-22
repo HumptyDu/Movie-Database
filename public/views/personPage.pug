@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+	head
+		title #{person.name}
+		link(rel="stylesheet" href="/views/index.css")
+	body
+		include ../views/partials/header
+		
+		h1 #{person.name}
+		
+		#workHistoryContainer
+			if person.actor.length > 0
+				h2 Acted in: 
+				for job in person.actor
+					a(href="/movies/" + job._id) #{job.title}
+					br
+			if person.director.length > 0
+				h2 Directed:
+				for job in person.director
+					a(href="/movies/" + job._id) #{job.title}
+					br
+			if person.writer.length > 0
+				h2 Wrote:
+				for job in person.writer
+					a(href="/movies/" + job._id) #{job.title}
+					br
+						
+		#freqCollabsContainer
+			if person.hasOwnProperty("freqCollabs")
+				h2 Frequent Collaboratos
+				for freq in person.freqCollabs
+					a(href="/people/" + freq) #{freq}
+					br
+			
+		if loggedIn
+			if followed
+				button.followButton#toggleFollowButton(type=button) Unfollow
+			else
+				button.followButton#toggleFollowButton(type=button) Follow
+			
+			
+script(src="/scripts/personPage.js")

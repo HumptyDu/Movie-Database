@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+	head
+		title Login / Sign Up
+		link(rel="stylesheet" href="./views/index.css")
+	body
+		include ../views/partials/header
+		
+		if loggedIn
+			h1 You are already logged in!
+			
+		else
+			h1 Login/Register
+			form#signInForm
+				input#usernameInput(type="text" placeholder="username")
+				br
+				input#passwordInput(type="text" placeholder="password")
+				br
+				button#loginButton(type="button") Login
+				button#registerButton(type="button") Register
+			
+script(src="./scripts/login.js")

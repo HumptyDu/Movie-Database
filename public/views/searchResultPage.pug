@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+	head
+		title Search Results
+		link(rel="stylesheet" href="/views/index.css")
+	body
+		include ../views/partials/header
+		
+		#searchResults
+			h1 Search Results
+			
+			for movie in results
+				a(href="/movies/"+ movie._id id=movie._id) #{movie.title}
+				br
+			
+			-let lastPage = Math.ceil(results.length / limit)
+			
+			if page > 1
+				button#prevPage(type="button") Prev
+			if results.length >= limit
+				button#nextPage(type="button") Next
+		
+script(src="./scripts/searchResultsPage.js")

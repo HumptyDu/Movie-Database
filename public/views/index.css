@@ -1,0 +1,422 @@
+/*Index.pug and most of the designs*/
+body {
+	background-color: beige;
+	margin: 0px;
+	padding: 0px;
+}
+
+body > * {
+	margin: 0px;
+	padding: 0px;
+}
+
+button{
+	cursor: pointer; 
+}
+
+#header{
+	text-align:center;
+	background-color: rgb(255, 255, 0, 0.25);
+	height: 50px;
+	border-bottom: 3px solid rgb(255, 0, 0, 0.25);
+	
+	/*Centers text vertically*/
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header > a{
+	margin: 25px;
+	text-decoration: none;
+	color: purple;
+}
+
+#header > #signOut{
+	color: purple;
+	cursor: pointer;
+}
+
+h1{
+	text-align: center;
+	font-family: "Luminari", fantasy;
+	font-size: 100px;
+}
+
+p{
+	text-align: center;
+}
+
+#trending, #recommended > p{
+	margin-top: 35px;
+	font-size:40px;
+}
+
+#trendingSlides{
+	width:45%;
+	height: 300px;
+	border: 2px solid black;
+	margin: 20px auto;
+	margin-bottom: 5px;
+}
+
+#trendingSlides > a > img{
+	height: 100%;
+	width: 100%;
+}
+
+#trending > button{
+	width: 22.6%;
+	height: 55px;
+}
+
+#prev{
+	margin-left: 27.4%;
+}
+
+#next{
+	margin-left: 0px;
+}
+
+
+
+
+
+/*moviePage.pug*/
+#moviePosterContainer > img{
+	display: block;
+	margin: 0 auto;
+}
+
+#infoContainer {
+	text-align: center;
+}
+
+#infoContainer > #addToWatchedButton{
+	margin: 20px 0px;
+	height: 80px;
+	width: 180px;
+}
+
+#infoContainer > p{
+	font-size: 20px;
+	display:inline;
+}
+
+#infoContainer > a{
+	font-size: 20px;
+	color: black;
+	text-decoration: none;
+	
+}
+
+#actorsContainer > h2{
+	font-size: 35px;
+	text-decoration: underline;
+}
+
+#actorsContainer > a{
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+}
+
+#plotContainer > h2{
+	font-size: 35px;
+	text-decoration: underline;
+}
+
+#plotContainer > p{
+	font-size: 20px;
+}
+
+#reviewsContainer > h2{
+	font-size : 35px;
+	text-decoration: underline;
+}
+
+#reviewsContainer > * >a{
+	text-decoration: none;
+	color: blue;
+}
+
+#reviewTitle{
+	color: black;
+}
+
+.review{
+	text-align: left;
+	border: 2px solid gray;
+	background-color: rgb(255, 255, 0, 0.25);
+	margin-bottom:3px;
+	padding-left: 5px;
+	margin-left: 0px;
+}
+
+#addReviewContainer{
+	border: 2px solid gray;
+	background-color: rgb(255, 255, 255, 0.75);
+	text-align: center;
+	margin: 50px 10px;
+}
+
+#addReviewContainer > h2{
+	font-size: 30px;
+	text-decoration: bold;
+}
+
+#addReviewContainer > button{
+	height: 50px;
+	width: 100px;
+	margin: 0px 10px;
+	margin-bottom: 10px;
+}
+
+#addReviewContainer > p{
+	font-size: 20px;
+}
+
+#userRating{
+	width: 150px;
+	margin-left: 10px;
+}
+
+#reviewText{
+	width: 80%;
+	height: 350px;
+	margin-bottom: 25px;
+	text-align: left;
+}
+
+
+
+
+/*PersonPage*/
+#workHistoryContainer {
+	margin-left: 10px;
+}
+
+#workHistoryContainer > a{
+	text-decoration: none;
+}
+
+#workHistoryContainer > h2{
+	text-align: left;
+}
+
+#freqCollabsContainer {
+	margin-left: 10px;
+}
+
+#freqCollabsContainer > a{
+	text-decoration: none;
+}
+
+#freqCollabsContainer > h2{
+	text-align: left;
+}
+
+.followButton{
+	margin: 35px auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	width: 75px;
+	border-radius: 16px;
+}
+
+
+
+
+/*userPage*/
+#userInfoContainer{
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 50px;
+}
+
+#userInfoContainer > h1 {
+	margin: 0px;
+}
+
+#userInfoContainer > h3 {
+	margin-bottom: 5px;
+}
+
+#userInfoContainer > h4, h2 {
+	text-align: center;
+}
+
+#userInfoContainer > h4 {
+	font-weight: normal;
+	margin-top: 10px;
+}
+
+#userInfoContainer > a {
+	text-decoration: none;
+}
+
+#userInfoContainer > .review > a {
+	text-decoration: none;
+}
+
+#userInfoContainer > #unfollowButton, #dismissButton{
+	margin-right: 7px;
+	margin-left: 7px;
+}
+
+#notificationsContainer > p{
+	text-align: left;
+}
+
+#toggleContributorButton{
+	margin-left: 46%;
+}
+
+#toggleUserFollowing{
+	margin-left: 48%;
+}
+
+.unfollowUserButton, .unfollowPersonButton{
+	margin-right: 5px;
+}
+
+/*Review Page*/
+#reviewPageContainer > *{
+	margin: 0px;
+	padding: 0px;
+}
+
+#reviewPageContainer > p{
+	font-size: 30px;
+	margin-bottom: 7px;
+}
+
+#reviewPageContainer > a{
+	font-size: 30px;
+	text-decoration: none;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	margin-top: 10px;
+}
+
+#reviewPageContainer > .review{
+	margin: 35px 15px;
+	border-radius: 10px;
+}
+
+#reviewPageContainer > .review > h4{
+	text-align: center;
+	font-size: 40px;
+}
+
+#reviewPageContainer > .review > p{
+	font-size: 30px;
+}
+
+/*login*/
+#signInForm {
+	margin-top: 50px;
+	text-align: center;
+}
+
+#signInForm > h1 {
+	margin-top: 0px;
+}
+
+
+#signInForm > input{
+	height: 50px;
+	width: 166px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#signInForm > button{
+	margin-right: 7px;
+	width: 80px;
+}
+
+/*Search*/
+#searchForm {
+	margin-top: 50px;
+	text-align: center;
+}
+
+#searchForm > h1 {
+	margin-top: 0px;
+}
+
+
+#searchForm > input{
+	height: 50px;
+	width: 450px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#searchForm > button{
+	margin-top: 43px;
+	width: 180px;
+	height: 80px;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+
+/*Contribute */
+#addMovieImg{
+	cursor: pointer;
+	margin-right: 30%;
+}
+
+#addPersonImg{
+	cursor: pointer;
+}
+
+.standardParagraph{
+	font-size: 30px;
+}
+
+/*addMoviePage*/
+#addItemForm{
+	text-align: center;
+}
+
+#addItemForm > input{
+	margin-bottom: 10px;
+	height: 60px;
+	width: 300px;
+	//margin-right: 20px;
+}
+
+#addItemForm > #addPersonButton, #addMovieButton{
+	margin-bottom: 30px;
+	height: 60px;
+	width: 300px;
+	border-radius: 25px;
+}
+
+#addItemForm > .addAnother{
+	position: absolute;
+	margin-left: 20px;
+	margin-top: 22px;
+}
+
+/*searchResultsPage*/
+#searchResults > h1{
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+}
+
+#searchResults > a {
+	text-align: center;
+	margin: 25px 25px;
+}
+
+#searchResults > button{
+	margin: 25px 25px;
+}

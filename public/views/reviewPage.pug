@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+	head
+		title #{review.Title}
+		link(rel="stylesheet" href="/views/index.css")
+	body
+		include ../views/partials/header
+		
+		#reviewPageContainer
+			h1= review.Title
+			p By: 
+				a(href="/users/" + review.User) #{review.User}
+			h2 Movie: 
+				a(href="/movies/" + review.Movie.Name) #{review.Movie.Name}
+			.review
+				h4 Score:
+					| #{review.Score}
+				p= review.Text

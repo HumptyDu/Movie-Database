@@ -1,0 +1,4 @@
+1. Open cmd as admin
+2. Navigate to C:\Program Files\MongoDB\Server\4.4\bin
+3. run mongod --dbpath="C:\Users\Shady\Desktop\4 Project\data"
+4. Leave running in background
